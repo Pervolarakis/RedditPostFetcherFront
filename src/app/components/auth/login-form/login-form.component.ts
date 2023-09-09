@@ -1,4 +1,5 @@
 import { Component, Output, EventEmitter } from '@angular/core';
+import { Login } from '../auth.types';
 
 @Component({
   selector: 'app-login-form',
