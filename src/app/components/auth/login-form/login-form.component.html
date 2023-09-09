@@ -1,14 +1,14 @@
 <form (ngSubmit)="onSubmit()">
     <div>
-        <label for="username">Username</label>
-        <input type="text" name="username" id="username" [(ngModel)]="username" placeholder="Username"/>
+        <label for="username" class="form-label">Username</label>
+        <input type="text" name="username" id="username" [(ngModel)]="username" placeholder="Username" class="form-control"/>
     </div>
     <div>
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password" [(ngModel)]="password" placeholder="Password"/>
+        <label for="password" class="form-label">Password</label>
+        <input type="password" name="password" id="password" [(ngModel)]="password" placeholder="Password" class="form-control"/>
     </div>
     <div>
-        <input type="submit" value="Login">
+        <input type="submit" value="Login" class="btn btn-primary">
     </div>
     <a routerLink="/register">Don't have an account? Register here!</a>
 </form>
