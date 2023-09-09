@@ -1,5 +1,6 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { Login } from '../auth.types';
+import {AuthService} from '../../../services/auth.service'
 
 @Component({
   selector: 'app-login-form',
@@ -7,9 +8,12 @@ import { Login } from '../auth.types';
   styleUrls: ['./login-form.component.css']
 })
 export class LoginFormComponent {
-  @Output() onLogin: EventEmitter<Login> = new EventEmitter();
+  @Output() onLoginSubmit: EventEmitter<Login> = new EventEmitter();
   username: string = "";
   password: string = "";
+
+  constructor(private authService: AuthService){
+  }
 
   onSubmit(){
     const loginValues: Login = {
@@ -17,7 +21,7 @@ export class LoginFormComponent {
       password: this.password
     };
 
-    this.onLogin.emit(loginValues);
+    this.authService.onUserLogin(loginValues);
 
   }
 
