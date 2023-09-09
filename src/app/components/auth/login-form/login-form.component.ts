@@ -9,7 +9,7 @@ import {AuthService} from '../../../services/auth.service'
 })
 export class LoginFormComponent {
   @Output() onLoginSubmit: EventEmitter<Login> = new EventEmitter();
-  username: string = "";
+  email: string = "";
   password: string = "";
 
   constructor(private authService: AuthService){
@@ -17,11 +17,11 @@ export class LoginFormComponent {
 
   onSubmit(){
     const loginValues: Login = {
-      username: this.username,
+      email: this.email,
       password: this.password
     };
 
-    this.authService.onUserLogin(loginValues);
+    this.authService.onUserLogin(loginValues).subscribe((res)=>console.log(res));
 
   }
 

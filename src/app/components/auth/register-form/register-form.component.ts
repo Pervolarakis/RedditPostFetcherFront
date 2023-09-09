@@ -8,7 +8,6 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./register-form.component.css']
 })
 export class RegisterFormComponent {
-  username: string = "";
   firstName: string = "";
   lastName: string = "";
   email: string = "";
@@ -20,7 +19,6 @@ export class RegisterFormComponent {
 
   onSubmit(){
     const registerValues: Register = {
-      username: this.username,
       firstName: this.firstName,
       lastName: this.lastName,
       email: this.email,
@@ -28,7 +26,7 @@ export class RegisterFormComponent {
       repeatPassword: this.repeatPassword
     };
 
-    this.authService.onUserRegister(registerValues);
+    this.authService.onUserRegister(registerValues).subscribe(res => console.log(res));
 
   }
 
