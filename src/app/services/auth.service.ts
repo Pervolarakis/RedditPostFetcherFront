@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Login } from '../components/auth/auth.types';
+import { Login, Register } from '../components/auth/auth.types';
 import { Observable, of } from 'rxjs';
 
 @Injectable({
@@ -14,6 +14,18 @@ export class AuthService {
       username: loginValues.username,
       password: loginValues.password
     }    
+    return;
+  }
+
+  onUserRegister(registerValues: Register): void {
+    const register: Register = {
+      username: registerValues.username,
+      firstName: registerValues.firstName,
+      lastName: registerValues.lastName,
+      email: registerValues.email,
+      password: registerValues.password,
+      repeatPassword: registerValues.repeatPassword
+    }
     return;
   }
 

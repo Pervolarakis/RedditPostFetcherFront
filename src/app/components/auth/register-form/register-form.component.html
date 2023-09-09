@@ -1,0 +1,31 @@
+<form (ngSubmit)="onSubmit()">
+    <div>
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username" [(ngModel)]="username" placeholder="Username"/>
+    </div>
+    <div>
+        <label for="firstName">First Name</label>
+        <input type="text" name="firstName" id="firstName" [(ngModel)]="firstName" placeholder="First Name"/>
+    </div>
+    <div>
+        <label for="lastName">First Name</label>
+        <input type="text" name="lastName" id="lastName" [(ngModel)]="lastName" placeholder="First Name"/>
+    </div>
+    <div>
+        <label for="email">First Name</label>
+        <input type="text" name="email" id="email" [(ngModel)]="email" placeholder="First Name"/>
+    </div>
+    <div>
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" [(ngModel)]="password" placeholder="Password"/>
+    </div>
+    <div>
+        <label for="repeatPassword">Repeat Password</label>
+        <input type="password" name="repeatPassword" id="repeatPassword" [(ngModel)]="repeatPassword" placeholder="Repeat Password"/>
+    </div>
+    <div>
+        <input type="submit" value="Register">
+    </div>
+    <a routerLink="/login">Already have an account? Login here!</a>
+</form>
+
