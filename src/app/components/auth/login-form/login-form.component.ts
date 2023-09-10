@@ -23,6 +23,7 @@ export class LoginFormComponent {
     };
 
     this.authService.onUserLogin(loginValues).subscribe((res)=> {
+      localStorage.setItem("current-user", res.token);
       this.router.navigate(["/dashboard"]);
     });
 

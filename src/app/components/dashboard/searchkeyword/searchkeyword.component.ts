@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { SearchkeywordService } from 'src/app/services/dashboard/searchkeyword.service';
+
 
 @Component({
   selector: 'app-searchkeyword',
@@ -8,7 +10,9 @@ import { Component } from '@angular/core';
 export class SearchkeywordComponent {
   keyword:string = "";
 
+  constructor(private searchKeywordService: SearchkeywordService){}
+
   onSubmit(){
-    console.log(this.keyword)
+    this.searchKeywordService.searchForKeyword(this.keyword).subscribe((res)=>console.log(res))
   }
 }

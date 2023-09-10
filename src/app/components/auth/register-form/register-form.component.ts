@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Register } from '../auth.types';
 import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register-form',
@@ -14,7 +15,7 @@ export class RegisterFormComponent {
   password: string = "";
   repeatPassword: string = "";
 
-  constructor(private authService: AuthService){
+  constructor(private authService: AuthService, private router: Router){
   }
 
   onSubmit(){
@@ -26,7 +27,10 @@ export class RegisterFormComponent {
       repeatPassword: this.repeatPassword
     };
 
-    this.authService.onUserRegister(registerValues).subscribe(res => console.log(res));
+    this.authService.onUserRegister(registerValues).subscribe(res => {
+      localStorage.setItem("current-user", res.token);
+      this.router.navigate(["/dashboard"]);
+    });
 
   }
 
