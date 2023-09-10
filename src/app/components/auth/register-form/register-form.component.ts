@@ -27,10 +27,7 @@ export class RegisterFormComponent {
       repeatPassword: this.repeatPassword
     };
 
-    this.authService.onUserRegister(registerValues).subscribe(res => {
-      localStorage.setItem("current-user", res.token);
-      this.router.navigate(["/dashboard"]);
-    });
+    this.authService.onUserRegister(registerValues).subscribe();
 
   }
 

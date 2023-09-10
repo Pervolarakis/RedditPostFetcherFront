@@ -11,6 +11,8 @@ import { RegisterFormComponent } from './components/auth/register-form/register-
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DashboardComponent } from './components/dashboard/dashboard/dashboard.component';
 import { SearchkeywordComponent } from './components/dashboard/searchkeyword/searchkeyword.component';
+import { SearchHistoryListComponent } from './components/dashboard/search-history-list/search-history-list.component';
+import { SearchHistoryListItemComponent } from './components/dashboard/search-history-list-item/search-history-list-item.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { SearchkeywordComponent } from './components/dashboard/searchkeyword/sea
     LoginFormComponent,
     RegisterFormComponent,
     DashboardComponent,
-    SearchkeywordComponent
+    SearchkeywordComponent,
+    SearchHistoryListComponent,
+    SearchHistoryListItemComponent
   ],
   imports: [
     BrowserModule,

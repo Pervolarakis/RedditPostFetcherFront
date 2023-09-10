@@ -13,7 +13,7 @@ export class LoginFormComponent {
   email: string = "";
   password: string = "";
 
-  constructor(private authService: AuthService, private router: Router){
+  constructor(private authService: AuthService){
   }
 
   onSubmit(){
@@ -22,10 +22,7 @@ export class LoginFormComponent {
       password: this.password
     };
 
-    this.authService.onUserLogin(loginValues).subscribe((res)=> {
-      localStorage.setItem("current-user", res.token);
-      this.router.navigate(["/dashboard"]);
-    });
+    this.authService.onUserLogin(loginValues).subscribe();
 
   }
 

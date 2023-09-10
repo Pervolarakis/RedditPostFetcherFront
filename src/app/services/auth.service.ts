@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Login, Register } from '../components/auth/auth.types';
-import { Observable, of } from 'rxjs';
+import { BehaviorSubject, Observable, catchError, map, of, tap } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { AuthServiceInterface } from './authService.types';
+import { Router } from '@angular/router';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -16,18 +17,30 @@ const httpOptions = {
 export class AuthService {
 
   private apiUrl:string = 'http://localhost:4000/api/v1/users/auth'
+  private _isLoggedIn = new BehaviorSubject<boolean>(false);
+  isLoggedIn = this._isLoggedIn.asObservable();
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) {
+    const token = localStorage.getItem('current-user');
+    this._isLoggedIn.next(!!token);
+  }
 
-  onUserLogin(loginValues: Login): Observable<AuthServiceInterface> {
+  onUserLogin(loginValues: Login): Observable<void> {
     const login: Login = {
       email: loginValues.email,
       password: loginValues.password
     };
-    return this.http.post<AuthServiceInterface>(`${this.apiUrl}/login`, login, httpOptions);
+    return this.http.post<AuthServiceInterface>(`${this.apiUrl}/login`, login, httpOptions).pipe(
+      map((res: any)=>{
+        this._isLoggedIn.next(true)
+        localStorage.setItem("current-user", res.token);
+        this.router.navigate(["/dashboard"]);
+      }),
+      catchError((err)=>{throw err})
+    );
   }
 
-  onUserRegister(registerValues: Register): Observable<AuthServiceInterface> {
+  onUserRegister(registerValues: Register): Observable<void> {
     const register: Register = {
       firstName: registerValues.firstName,
       lastName: registerValues.lastName,
@@ -35,7 +48,14 @@ export class AuthService {
       password: registerValues.password,
       repeatPassword: registerValues.repeatPassword
     }
-    return this.http.post<AuthServiceInterface>(`${this.apiUrl}/register`, register, httpOptions);
+    return this.http.post<AuthServiceInterface>(`${this.apiUrl}/register`, register, httpOptions).pipe(
+      map((res: any)=>{
+        this._isLoggedIn.next(true)
+        localStorage.setItem("current-user", res.token);
+        this.router.navigate(["/dashboard"]);
+      }),
+      catchError((err)=>{throw err})
+    );;
   }
 
 }

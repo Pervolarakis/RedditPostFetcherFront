@@ -22,3 +22,8 @@ export interface post {
     created_utc: Number,
     num_comments: Number
 }
+
+export interface SearchHistoryResponse {
+    success: boolean,
+    data: SearchResult[]
+}
