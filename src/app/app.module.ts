@@ -13,6 +13,7 @@ import { DashboardComponent } from './components/dashboard/dashboard/dashboard.c
 import { SearchkeywordComponent } from './components/dashboard/searchkeyword/searchkeyword.component';
 import { SearchHistoryListComponent } from './components/dashboard/search-history-list/search-history-list.component';
 import { SearchHistoryListItemComponent } from './components/dashboard/search-history-list-item/search-history-list-item.component';
+import { DisplaySearchResultComponent } from './components/display-search-result/display-search-result/display-search-result.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { SearchHistoryListItemComponent } from './components/dashboard/search-hi
     DashboardComponent,
     SearchkeywordComponent,
     SearchHistoryListComponent,
-    SearchHistoryListItemComponent
+    SearchHistoryListItemComponent,
+    DisplaySearchResultComponent
   ],
   imports: [
     BrowserModule,
