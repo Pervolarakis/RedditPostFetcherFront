@@ -14,6 +14,7 @@ import { SearchkeywordComponent } from './components/dashboard/searchkeyword/sea
 import { SearchHistoryListComponent } from './components/dashboard/search-history-list/search-history-list.component';
 import { SearchHistoryListItemComponent } from './components/dashboard/search-history-list-item/search-history-list-item.component';
 import { DisplaySearchResultComponent } from './components/display-search-result/display-search-result/display-search-result.component';
+import { PostComponent } from './components/display-search-result/post/post.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { DisplaySearchResultComponent } from './components/display-search-result
     SearchkeywordComponent,
     SearchHistoryListComponent,
     SearchHistoryListItemComponent,
-    DisplaySearchResultComponent
+    DisplaySearchResultComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,
