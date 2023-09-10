@@ -1,6 +1,7 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { Login } from '../auth.types';
 import {AuthService} from '../../../services/auth.service'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-form',
@@ -12,7 +13,7 @@ export class LoginFormComponent {
   email: string = "";
   password: string = "";
 
-  constructor(private authService: AuthService){
+  constructor(private authService: AuthService, private router: Router){
   }
 
   onSubmit(){
@@ -21,7 +22,9 @@ export class LoginFormComponent {
       password: this.password
     };
 
-    this.authService.onUserLogin(loginValues).subscribe((res)=>console.log(res));
+    this.authService.onUserLogin(loginValues).subscribe((res)=> {
+      this.router.navigate(["/dashboard"]);
+    });
 
   }
 
