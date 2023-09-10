@@ -5,7 +5,7 @@ import { SearchHistoryListComponent } from './search-history-list.component';
 describe('SearchHistoryListComponent', () => {
   let component: SearchHistoryListComponent;
   let fixture: ComponentFixture<SearchHistoryListComponent>;
-
+  
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [SearchHistoryListComponent]

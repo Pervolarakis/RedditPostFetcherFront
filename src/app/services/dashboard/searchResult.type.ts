@@ -1,9 +1,9 @@
 export interface SearchResult {
-    userId: String,
+    userId: string,
     date: Date,
-    keyword: String,
+    keyword: string,
     posts: post[],
-    _id: String
+    _id: string
 }
 
 export interface post {

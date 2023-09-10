@@ -9,14 +9,14 @@ import { SearchHistoryResponse, SearchResult } from 'src/app/services/dashboard/
 })
 export class SearchHistoryListComponent implements OnInit{
 
-  searchHistory: SearchResult[] = [];
+  searchHistory: {[key: string]: SearchResult} = {};
+  objectKeys = Object.keys;
 
-  constructor(private searchHistoryService: SearchHistoryService){}
+  constructor(private searchHistoryService: SearchHistoryService){
+    this.searchHistory = searchHistoryService.searchHistory;
+  }
 
   ngOnInit(): void {
-    this.searchHistoryService.getSearchHistory().subscribe((res: SearchHistoryResponse)=>{
-      this.searchHistory = res.data;
-      console.log(this.searchHistory)
-    })
+    this.searchHistoryService.getSearchHistory().subscribe()
   }
 }
