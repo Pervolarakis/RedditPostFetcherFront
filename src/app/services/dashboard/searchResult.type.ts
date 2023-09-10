@@ -3,6 +3,7 @@ export interface SearchResult {
     date: Date,
     keyword: String,
     posts: post[],
+    _id: String
 }
 
 export interface post {

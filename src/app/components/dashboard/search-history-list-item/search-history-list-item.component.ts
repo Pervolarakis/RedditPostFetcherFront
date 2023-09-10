@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { SearchResult } from 'src/app/services/dashboard/searchResult.type';
 
 @Component({
   selector: 'app-search-history-list-item',
@@ -6,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./search-history-list-item.component.css']
 })
 export class SearchHistoryListItemComponent {
-
+  @Input() searchItem!: SearchResult;
+  
 }
