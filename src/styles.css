@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    font-family: 'IBM Plex Sans', sans-serif !important;
+    background-color: #e3eaf1;
+}
+app-post-modal{
+    width: 0px;
+    height: 0px;
+}

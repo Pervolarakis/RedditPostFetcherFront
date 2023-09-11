@@ -1,4 +1,4 @@
-<button (click)="openModal()">
+<!-- <button (click)="openModal()">
     <p>{{post.selftext}}</p>
     <p>{{post.author_fullname}}</p>
     <p>{{post.title}}</p>
@@ -14,4 +14,34 @@
     <p>{{post.subreddit_subscribers}}</p>
     <p>{{post.created_utc}}</p>
     <p>{{post.num_comments}}</p>
+</button> -->
+
+<button class="card mb-2 align-items-center" style="width: 100%; padding: 0px;" (click)="openModal()">
+  <div class="d-flex" style="width: 100%;">
+    <div class="mt-2" style="background-color: rgba(255,255,255,0.8); width: 50px; display: flex; flex-direction: column;">
+      <fa-icon [icon]="faCaretUp" class="fa-xl"></fa-icon>
+      {{post.ups}}
+      <fa-icon [icon]="faCaretDown" class="fa-xl"></fa-icon>
+    </div>
+    <div class="d-flex">
+      <div *ngIf="post.thumbnail!='self' && post.thumbnail!='nsfw' && post.thumbnail!='default' && post.thumbnail!='image'" style="padding: 0px">
+          <img src="{{post.thumbnail}}"/>
+          <!-- {{post.thumbnail}} -->
+      </div>
+      <div class="text-start p-3">
+        <span>
+          <span class="fw-bold text-start">{{post.subreddit_name_prefixed}}</span>
+          <span> . Posted by {{post.author_fullname}}</span>
+        </span>
+        <div class="post-title">
+          <p class="fs-5 fw-bold text-start">{{post.title}}</p>
+        </div>
+        <span>{{formatDate()}}</span>
+        <p class="mb-0"><fa-icon [icon]="faMessage" class="fa-s mr-2"></fa-icon><span style="margin-left: 0.5rem;">{{post.num_comments}} Comments</span></p>
+        <!-- <div>
+          <p class="text-start" [innerHtml]="post.selftext"></p>
+        </div> -->
+      </div>
+    </div>
+  </div>
 </button>

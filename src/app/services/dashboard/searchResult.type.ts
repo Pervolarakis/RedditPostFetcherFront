@@ -20,7 +20,7 @@ export interface post {
     thumbnail: String,
     id: String,
     subreddit_subscribers: String,
-    created_utc: Number,
+    created_utc: number,
     num_comments: Number
 }
 

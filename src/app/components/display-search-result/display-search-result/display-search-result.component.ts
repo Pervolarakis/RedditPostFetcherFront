@@ -22,5 +22,10 @@ export class DisplaySearchResultComponent implements OnInit {
       //todo: check if this.searchHistoryService.searchHistory exists or fetch item
       this.searchItem = this.searchHistoryService.searchHistory[this.id]
     })
+    if(Object.keys(this.searchHistoryService.searchHistory).length===0){
+      this.searchHistoryService.getSearchHistory().subscribe((res)=>{
+        this.searchItem = this.searchHistoryService.searchHistory[this.id]
+      });
+    }
   }
 }

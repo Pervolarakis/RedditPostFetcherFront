@@ -16,6 +16,7 @@ import { SearchHistoryListItemComponent } from './components/dashboard/search-hi
 import { DisplaySearchResultComponent } from './components/display-search-result/display-search-result/display-search-result.component';
 import { PostComponent } from './components/display-search-result/post/post.component';
 import { PostModalComponent } from './components/display-search-result/post-modal/post-modal.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { PostModalComponent } from './components/display-search-result/post-moda
     FormsModule,
     NgbModule,
     HttpClientModule,
-    ReactiveFormsModule 
+    ReactiveFormsModule,
+    FontAwesomeModule 
   ],
   providers: [],
   bootstrap: [AppComponent]
