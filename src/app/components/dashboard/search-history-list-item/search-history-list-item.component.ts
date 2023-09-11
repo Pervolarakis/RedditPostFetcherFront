@@ -8,5 +8,7 @@ import { SearchResult } from 'src/app/services/dashboard/searchResult.type';
 })
 export class SearchHistoryListItemComponent {
   @Input() searchItem!: SearchResult;
-  
+  formatDate():string{
+    return new Date(this.searchItem.date).toDateString();
+  }
 }

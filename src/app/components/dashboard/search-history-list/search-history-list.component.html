@@ -1,1 +1,4 @@
-<app-search-history-list-item *ngFor="let key of objectKeys(searchHistory)" [searchItem]="searchHistory[key]"></app-search-history-list-item>
+<p class="mt-5">Past searches</p>
+<div class="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-2 g-lg-3  mt-3">
+    <app-search-history-list-item *ngFor="let key of objectKeys(searchHistory)" [searchItem]="searchHistory[key]"></app-search-history-list-item>
+</div>
