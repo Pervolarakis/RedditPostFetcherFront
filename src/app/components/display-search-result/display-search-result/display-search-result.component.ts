@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { SearchHistoryService } from 'src/app/services/dashboard/search-history/search-history.service';
 import { SearchResult } from 'src/app/services/dashboard/searchResult.type';

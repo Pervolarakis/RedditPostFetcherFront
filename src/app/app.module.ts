@@ -15,6 +15,7 @@ import { SearchHistoryListComponent } from './components/dashboard/search-histor
 import { SearchHistoryListItemComponent } from './components/dashboard/search-history-list-item/search-history-list-item.component';
 import { DisplaySearchResultComponent } from './components/display-search-result/display-search-result/display-search-result.component';
 import { PostComponent } from './components/display-search-result/post/post.component';
+import { PostModalComponent } from './components/display-search-result/post-modal/post-modal.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { PostComponent } from './components/display-search-result/post/post.comp
     SearchHistoryListComponent,
     SearchHistoryListItemComponent,
     DisplaySearchResultComponent,
-    PostComponent
+    PostComponent,
+    PostModalComponent
   ],
   imports: [
     BrowserModule,
