@@ -1,3 +1,9 @@
-<p>{{this.searchItem.keyword}}</p>
-<p>{{this.searchItem.date}}</p>
+<p class="fs-2 mt-3">Keyword: {{searchItem.keyword.charAt(0).toUpperCase() + searchItem.keyword.slice(1)}}</p>
+<p class="fs-5">{{formatDate()}}</p>
+<p class="fs-4">Total results: {{searchItem.posts.length}}</p>
+<div class="row mb-3">
+    <p class="col fs-4">Total upvotes: {{calculateTotalUpvotes()}}</p>
+    <p class="col fs-4">Total downvotes: {{calculateTotalDownvotes()}}</p>
+    <p class="col fs-4">Total comments: {{calculateTotalCommentss()}}</p>
+</div>
 <app-post *ngFor="let post of searchItem.posts" [post]="post"></app-post>

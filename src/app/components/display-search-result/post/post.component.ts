@@ -13,12 +13,10 @@ import { faMessage } from '@fortawesome/free-regular-svg-icons'
 export class PostComponent {
 
   @Input() post!:post
-  @ViewChild(PostModalComponent) modal!:PostModalComponent;
 
   faCaretUp = faCaretUp;
   faCaretDown = faCaretDown;
   faMessage = faMessage;
-
 
   constructor(private modalService: NgbModal){}
 

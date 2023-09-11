@@ -28,4 +28,27 @@ export class DisplaySearchResultComponent implements OnInit {
       });
     }
   }
+
+  calculateTotalUpvotes(){
+    return this.searchItem.posts.reduce((accumulator, object) => {
+      return accumulator + object.ups;
+    }, 0);
+  }
+
+  calculateTotalDownvotes(){
+    return this.searchItem.posts.reduce((accumulator, object) => {
+      return accumulator + object.downs;
+    }, 0);
+  }
+
+  calculateTotalCommentss(){
+    return this.searchItem.posts.reduce((accumulator, object) => {
+      return accumulator + object.num_comments;
+    }, 0);
+  }
+
+  formatDate():string{
+    return new Date(this.searchItem.date).toDateString();
+}
+
 }

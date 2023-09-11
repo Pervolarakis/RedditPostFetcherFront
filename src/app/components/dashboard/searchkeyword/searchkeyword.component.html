@@ -1,8 +1,10 @@
 <form (ngSubmit)="onSubmit()">
-    <div>
-        <input type="text" name="keyword" id="keyword" [(ngModel)]="keyword" placeholder="Search for keyword!" class="form-control"/>
-    </div>
-    <div>
-        <input type="submit" value="Seach" class="btn btn-primary">
+    <div class="row mt-4">
+        <div class="col-10">
+            <input type="text" name="keyword" id="keyword" [(ngModel)]="keyword" placeholder="Search for keyword!" class="form-control"/>
+        </div>
+        <div class="col-2 d-grid mb-2">
+            <input type="submit" value="Seach" class="btn" style="background-color: #0079D3; color: white;">
+        </div>
     </div>
 </form>
