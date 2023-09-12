@@ -7,4 +7,15 @@
             <input type="submit" value="Seach" class="btn" style="background-color: #0079D3; color: white;">
         </div>
     </div>
+    <div *ngIf="success" class="alert alert-success d-flex align-items-center" role="alert">
+        <div>
+            Search was successful!
+        </div>
+    </div>
+    <div *ngIf="error!=null">
+        <div *ngFor="let errorItem of error" class="alert alert-danger" role="alert">
+            {{errorItem.message!}}
+        </div>
+    </div>
+      
 </form>

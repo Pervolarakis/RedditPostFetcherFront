@@ -23,7 +23,6 @@ export class SearchHistoryService {
         res.data.map((el, index)=>{
           this.searchHistory[el._id] = el;
         })
-        console.log(this.searchHistory)
       })
     );
   }

@@ -11,10 +11,31 @@ import { SearchkeywordService } from 'src/app/services/dashboard/searchkeyword.s
 })
 export class SearchkeywordComponent {
   keyword:string = "";
+  success: boolean = false;
+  error: [{message: string}]|null = null;
 
   constructor(private searchKeywordService: SearchkeywordService, private searchHistoryService: SearchHistoryService){}
 
   onSubmit(){
-    this.searchKeywordService.searchForKeyword(this.keyword).subscribe((res: NewSearchResonse)=>this.searchHistoryService.searchHistory[res.data._id] = res.data);
+    this.searchKeywordService.searchForKeyword(this.keyword).subscribe(
+      (res: NewSearchResonse)=>{
+        this.searchHistoryService.searchHistory[res.data._id] = res.data;
+        this.success = true;
+        setTimeout(() => { 
+          this.success = false;
+        }, 3000);
+      },
+      err=>{
+        if(!err.error.success){
+          if (typeof err.error.error == "string"){
+            this.error = [{message: err.error.error}]
+          }else{
+            this.error = err.error.error
+          }
+        }else{
+          this.error = null
+        }
+      },
+    );
   }
 }
