@@ -30,21 +30,25 @@ export class RegisterFormComponent {
     };
     this.submitted = true;
     if( this.email.length && this.password.length && this.firstName.length && this.lastName.length && this.repeatPassword.length){
-      this.authService.onUserRegister(registerValues).subscribe(
-        data=>{console.log(data);},
-        err=>{
-          if(!err.error.success){
-            if (typeof err.error.error == "string"){
-              this.error = [{message: err.error.error}]
+      if(this.repeatPassword !== this.password){
+        this.error = [{message: "Passwords dont match"}]
+      }else{
+        this.authService.onUserRegister(registerValues).subscribe(
+          data=>{console.log(data);},
+          err=>{
+            if(!err.error.success){
+              if (typeof err.error.error == "string"){
+                this.error = [{message: err.error.error}]
+              }else{
+                this.error = err.error.error
+              }
             }else{
-              this.error = err.error.error
+              this.error = null
             }
-          }else{
-            this.error = null
-          }
-        },
-        ()=>{console.log("completed");}
-      );
+          },
+          ()=>{console.log("completed");}
+        );
+      }
 
     }
   }
