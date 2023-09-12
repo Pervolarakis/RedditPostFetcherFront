@@ -14,6 +14,8 @@ export class RegisterFormComponent {
   email: string = "";
   password: string = "";
   repeatPassword: string = "";
+  submitted: boolean = false;
+  error: [{message: string}]|null = null;
 
   constructor(private authService: AuthService, private router: Router){
   }
@@ -26,9 +28,25 @@ export class RegisterFormComponent {
       password: this.password,
       repeatPassword: this.repeatPassword
     };
+    this.submitted = true;
+    if( this.email.length && this.password.length && this.firstName.length && this.lastName.length && this.repeatPassword.length){
+      this.authService.onUserRegister(registerValues).subscribe(
+        data=>{console.log(data);},
+        err=>{
+          if(!err.error.success){
+            if (typeof err.error.error == "string"){
+              this.error = [{message: err.error.error}]
+            }else{
+              this.error = err.error.error
+            }
+          }else{
+            this.error = null
+          }
+        },
+        ()=>{console.log("completed");}
+      );
 
-    this.authService.onUserRegister(registerValues).subscribe();
-
+    }
   }
 
 }
