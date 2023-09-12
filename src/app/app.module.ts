@@ -17,6 +17,7 @@ import { DisplaySearchResultComponent } from './components/display-search-result
 import { PostComponent } from './components/display-search-result/post/post.component';
 import { PostModalComponent } from './components/display-search-result/post-modal/post-modal.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ChartComponent } from './components/display-search-result/chart/chart.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     DisplaySearchResultComponent,
     PostComponent,
     PostModalComponent,
+    ChartComponent,
   ],
   imports: [
     BrowserModule,

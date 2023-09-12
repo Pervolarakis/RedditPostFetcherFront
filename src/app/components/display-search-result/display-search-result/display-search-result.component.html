@@ -6,8 +6,12 @@
 </div>
 <p class="fs-5">Total results: {{searchItem.posts.length}}</p>
 <div class="d-flex justify-content-between mb-3">
-    <p class="fs-4">Total upvotes: {{calculateTotalUpvotes()}}</p>
-    <p class="fs-4">Total downvotes: {{calculateTotalDownvotes()}}</p>
-    <p class="fs-4">Total comments: {{calculateTotalCommentss()}}</p>
+    <p class="fs-4">Total upvotes: <span style="color: #9966ff">{{calculateTotalUpvotes()}}</span> </p>
+    <p class="fs-4">Total downvotes: <span style="color: #ffcd56">{{calculateTotalDownvotes()}}</span></p>
+    <p class="fs-4">Total comments: <span style="color: #4bc0c0">{{calculateTotalCommentss()}}</span></p>
 </div>
-<app-post *ngFor="let post of searchItem.posts" [post]="post"></app-post>
+<app-chart [searchItem]="searchItem"></app-chart>
+<div class="mt-5">
+    <p class="fs-4">Posts</p>
+    <app-post *ngFor="let post of searchItem.posts" [post]="post"></app-post>
+</div>
