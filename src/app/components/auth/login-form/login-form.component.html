@@ -14,6 +14,11 @@
         <div class="d-grid mb-2">
             <input type="submit" value="Login" class="btn rounded" style="background-color: #d93a00; color: white;">
         </div>
+        <div *ngIf="error!=null">
+            <div *ngFor="let errorItem of error" class="alert alert-danger" role="alert">
+                {{errorItem.message!}}
+            </div>
+        </div>
         <a routerLink="/register" class="mt-2">Don't have an account? Register here!</a>
         
     </form>

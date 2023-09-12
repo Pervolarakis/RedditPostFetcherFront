@@ -11,7 +11,7 @@ export class LoginFormComponent {
   email: string = "";
   password: string = "";
   submitted: boolean = false;
-  error: string = "";
+  error: [{message: string}]|null = null;
   constructor(private authService: AuthService){
   }
 
@@ -24,7 +24,22 @@ export class LoginFormComponent {
     if( this.email.length && this.password.length){
       this.authService.onUserLogin(loginValues).subscribe(
         data=>{console.log(data);},
-        err=>{console.log(err.error.error);},
+        err=>{
+          if(!err.error.success){
+            if (typeof err.error.error == "string"){
+              this.error = [{message: err.error.error}]
+            }else{
+              this.error = err.error.error
+            }
+          }else{
+            this.error = null
+          }
+        },
+          
+        //   (!err.error.success) ? () => {
+        //   console.log(err.error.error)
+        //   this.error = err.error.error
+        // } : this.error = null},
         ()=>{console.log("completed");}
       );
     }
