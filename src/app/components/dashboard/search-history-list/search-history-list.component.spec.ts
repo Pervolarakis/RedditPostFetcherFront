@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { SearchHistoryListComponent } from './search-history-list.component';
 
 describe('SearchHistoryListComponent', () => {

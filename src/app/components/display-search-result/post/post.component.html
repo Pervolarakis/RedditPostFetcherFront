@@ -1,21 +1,3 @@
-<!-- <button (click)="openModal()">
-    <p>{{post.selftext}}</p>
-    <p>{{post.author_fullname}}</p>
-    <p>{{post.title}}</p>
-    <p>{{post.subreddit_name_prefixed}}</p>
-    <p>{{post.downs}}</p>
-    <p>{{post.thumbnail_height}}</p>
-    <p>{{post.subreddit_type}}</p>
-    <p>{{post.ups}}</p>
-    <p>{{post.permalink}}</p>
-    <p>{{post.thumbnail_width}}</p>
-    <p>{{post.thumbnail}}</p>
-    <p>{{post.id}}</p>
-    <p>{{post.subreddit_subscribers}}</p>
-    <p>{{post.created_utc}}</p>
-    <p>{{post.num_comments}}</p>
-</button> -->
-
 <button class="card mb-2 align-items-center" style="width: 100%; padding: 0px;" (click)="openModal()">
   <div class="d-flex" style="width: 100%;">
     <div style="background-color: #f8f9fa; width: 50px; display: flex; flex-direction: column;">
@@ -33,7 +15,7 @@
           <span class="fw-bold text-start">{{post.subreddit_name_prefixed}}</span>
           <span> . Posted by {{post.author_fullname}}</span>
         </span>
-        <div class="post-title">
+        <div>
           <p class="fs-5 fw-bold text-start">{{post.title}}</p>
         </div>
         <span>{{formatDate()}}</span>

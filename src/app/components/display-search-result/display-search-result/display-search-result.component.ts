@@ -19,7 +19,6 @@ export class DisplaySearchResultComponent implements OnInit {
   ngOnInit(): void {
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.id = params.get('id')!
-      //todo: check if this.searchHistoryService.searchHistory exists or fetch item
       this.searchItem = this.searchHistoryService.searchHistory[this.id]
     })
     if(Object.keys(this.searchHistoryService.searchHistory).length===0){

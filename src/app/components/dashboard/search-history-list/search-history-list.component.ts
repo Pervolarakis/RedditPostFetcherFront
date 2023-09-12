@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SearchHistoryService } from 'src/app/services/dashboard/search-history/search-history.service';
-import { SearchHistoryResponse, SearchResult } from 'src/app/services/dashboard/searchResult.type';
+import { SearchResult } from 'src/app/services/dashboard/searchResult.type';
 
 @Component({
   selector: 'app-search-history-list',

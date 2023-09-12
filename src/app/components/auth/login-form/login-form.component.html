@@ -2,17 +2,17 @@
     <form (ngSubmit)="onSubmit()" class="card p-4 mt-5 align-middle" style="width: 30rem;">
         <h4 class="mb-4">Log In</h4>
         <div class="form-floating mb-3 .bg-light">
-            <input required type="text" name="email" id="email" [(ngModel)]="email" placeholder="Email" class="form-control rounded-pill bg-light"/>
+            <input [ngClass]="emailValidationStatus.invalid && (emailValidationStatus.dirty || emailValidationStatus.touched || submitted)? 'border border-danger' : ''" required type="text" name="email" id="email" #emailValidationStatus="ngModel" [(ngModel)]="email" placeholder="Email" class="form-control rounded bg-light"/>
             <label for="email" class="form-label">Email</label>
-            <div class="invalid-feedback">Please fill out this field.</div>
+            <div *ngIf="emailValidationStatus.invalid && (emailValidationStatus.dirty || emailValidationStatus.touched || submitted)" class="invalid-feedback d-block">Please fill out this field.</div>
         </div>
         <div class="form-floating mb-3 .bg-light">
-            <input type="password" name="password" id="password" [(ngModel)]="password" placeholder="Password" class="form-control rounded-pill bg-light"/>
+            <input [ngClass]="passwordValidationStatus.invalid && (passwordValidationStatus.dirty || passwordValidationStatus.touched || submitted) ? 'border border-danger' : ''" required type="password" name="password" id="password" #passwordValidationStatus="ngModel" [(ngModel)]="password" placeholder="Password" class="form-control rounded bg-light"/>
             <label for="password" class="form-label">Password</label>
-            <div class="invalid-feedback">Please fill out this field.</div>
+            <div *ngIf="passwordValidationStatus.invalid && (passwordValidationStatus.dirty || passwordValidationStatus.touched || submitted)" class="invalid-feedback d-block">Please fill out this field.</div>
         </div>
         <div class="d-grid mb-2">
-            <input type="submit" value="Login" class="btn rounded-pill" style="background-color: #d93a00; color: white;">
+            <input type="submit" value="Login" class="btn rounded" style="background-color: #d93a00; color: white;">
         </div>
         <a routerLink="/register" class="mt-2">Don't have an account? Register here!</a>
         

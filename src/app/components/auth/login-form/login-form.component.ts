@@ -1,7 +1,6 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { Login } from '../auth.types';
 import {AuthService} from '../../../services/auth.service'
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-form',
@@ -9,10 +8,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./login-form.component.css']
 })
 export class LoginFormComponent {
-  @Output() onLoginSubmit: EventEmitter<Login> = new EventEmitter();
   email: string = "";
   password: string = "";
-
+  submitted: boolean = false;
+  error: string = "";
   constructor(private authService: AuthService){
   }
 
@@ -21,9 +20,15 @@ export class LoginFormComponent {
       email: this.email,
       password: this.password
     };
-
-    this.authService.onUserLogin(loginValues).subscribe();
-
+    this.submitted = true;
+    if( this.email.length && this.password.length){
+      this.authService.onUserLogin(loginValues).subscribe(
+        data=>{console.log(data);},
+        err=>{console.log(err.error.error);},
+        ()=>{console.log("completed");}
+      );
+    }
+    
   }
 
 }
