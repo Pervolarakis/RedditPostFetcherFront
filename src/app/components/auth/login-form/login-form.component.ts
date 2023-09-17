@@ -7,11 +7,13 @@ import {AuthService} from '../../../services/auth.service'
   templateUrl: './login-form.component.html',
   styleUrls: ['./login-form.component.css']
 })
+
 export class LoginFormComponent {
   email: string = "";
   password: string = "";
   submitted: boolean = false;
   error: [{message: string}]|null = null;
+  
   constructor(private authService: AuthService){
   }
 
@@ -35,11 +37,6 @@ export class LoginFormComponent {
             this.error = null
           }
         },
-          
-        //   (!err.error.success) ? () => {
-        //   console.log(err.error.error)
-        //   this.error = err.error.error
-        // } : this.error = null},
         ()=>{console.log("completed");}
       );
     }

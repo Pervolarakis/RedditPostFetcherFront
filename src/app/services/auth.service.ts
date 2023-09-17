@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Login, Register } from '../components/auth/auth.types';
 import { BehaviorSubject, Observable, catchError, map, of, tap } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
-import { AuthServiceInterface } from './authService.types';
+import { AuthServiceInterface, CurrentUser } from './authService.types';
 import { Router } from '@angular/router';
 
 const httpOptions = {
@@ -56,6 +56,22 @@ export class AuthService {
       }),
       catchError((err)=>{throw err})
     );;
+  }
+
+  getCurrentUser(){
+    const token:String|null = localStorage.getItem("current-user");
+    if(token){
+      const currentUser: CurrentUser  = JSON.parse(atob(token.split('.')[1]));
+      return currentUser.email;
+    }else{
+      return token;
+    }
+  }
+
+  logOutUser(){
+    localStorage.removeItem("current-user")
+    this._isLoggedIn.next(false)
+    this.router.navigate(["/login"]);
   }
 
 }

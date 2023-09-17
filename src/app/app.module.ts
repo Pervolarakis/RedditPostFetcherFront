@@ -5,7 +5,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AuthContainerComponent } from './components/auth/auth-container/auth-container.component';
 import { LoginFormComponent } from './components/auth/login-form/login-form.component';
 import { RegisterFormComponent } from './components/auth/register-form/register-form.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -18,11 +17,11 @@ import { PostComponent } from './components/display-search-result/post/post.comp
 import { PostModalComponent } from './components/display-search-result/post-modal/post-modal.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ChartComponent } from './components/display-search-result/chart/chart.component';
+import { CurrentUserComponent } from './components/current-user/current-user.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AuthContainerComponent,
     LoginFormComponent,
     RegisterFormComponent,
     DashboardComponent,
@@ -33,6 +32,7 @@ import { ChartComponent } from './components/display-search-result/chart/chart.c
     PostComponent,
     PostModalComponent,
     ChartComponent,
+    CurrentUserComponent,
   ],
   imports: [
     BrowserModule,

@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { SearchHistoryService } from 'src/app/services/dashboard/search-history/search-history.service';
 import { SearchResult } from 'src/app/services/dashboard/searchResult.type';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-display-search-result',
@@ -12,6 +13,7 @@ export class DisplaySearchResultComponent implements OnInit {
 
   id!: string
   searchItem!: SearchResult;
+  faArrowLeft = faArrowLeft;
 
   constructor(private route: ActivatedRoute, private searchHistoryService: SearchHistoryService) {
   }

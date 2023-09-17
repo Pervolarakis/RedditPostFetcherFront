@@ -1,12 +1,12 @@
 <button class="card mb-2 align-items-center" style="width: 100%; padding: 0px;" (click)="openModal()">
   <div class="d-flex" style="width: 100%;">
-    <div style="background-color: #f8f9fa; width: 50px; display: flex; flex-direction: column;">
+    <div style="background-color: #f8f9fa; min-width: 50px; display: flex; flex-direction: column;">
       <fa-icon [icon]="faCaretUp" class="fa-xl mt-2"></fa-icon>
       {{post.ups}}
       <fa-icon [icon]="faCaretDown" class="fa-xl"></fa-icon>
     </div>
     <div class="d-flex">
-      <div *ngIf="post.thumbnail!='self' && post.thumbnail!='nsfw' && post.thumbnail!='default' && post.thumbnail!='image'" style="padding: 0px">
+      <div class="d-flex align-items-center justify-content-center" *ngIf="post.thumbnail!='self' && post.thumbnail!='nsfw' && post.thumbnail!='default' && post.thumbnail!='image'" style="padding: 0px">
           <img src="{{post.thumbnail}}"/>
           <!-- {{post.thumbnail}} -->
       </div>
